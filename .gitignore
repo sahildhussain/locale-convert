@@ -51,6 +51,7 @@ yarn.lock
 *.status
 libtool
 Makefile
+keyData.json
 
 ####################################################################################################
 ## LocalHistory.gitignore ##
