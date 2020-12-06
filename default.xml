@@ -5,4 +5,6 @@
 <locale>Here</locale>
 <locale>OS</locale>
 <locale>Apple</locale>
+<locale>System Error Occured. Please try Again</locale>
+<locale>Sorry, No Internet Connection</locale>
 </locales>

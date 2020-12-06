@@ -5,8 +5,8 @@ def detectLanguage(text):
     l_blob = TextBlob(text)
     return de_blob.detect_language()
 
-def translateLanguage(_src,_to):
-    textArray = GetFileData()
+def translateLanguage(_src,_to,filePath):
+    textArray = GetFileData(filePath)
     for index in range(len(textArray)):
         text = textArray[index]
         if(_src == ''):

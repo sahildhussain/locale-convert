@@ -7,10 +7,10 @@ def getKeydata():
     data = json.load(file)
     return data
 
-def GetFileData():
-    p = Path.cwd()/Path('default.xml')
+def GetFileData(filePath):
+    p = Path(filePath)
     text = p.read_text()
-    regex = re.compile(r'\>[a-zA-Z0-9_ !?.]*\<')
+    regex = re.compile(r'\>[a-zA-Z0-9_ !?.,]*\<')
     localeData = regex.findall(text)
 
     for i in range(len(localeData)):
@@ -18,13 +18,13 @@ def GetFileData():
         localeData[i] = localeData[i].strip('<')
     return localeData
 
-def saveFile(language,changedLocale):
-    p = Path.cwd()/Path('default.xml')
+def saveFile(language,changedLocale,filePath):
+    p = Path(filePath)
     text = p.read_text()
     fileName = language+'.xml'
     changedFile = open(fileName,'w')
 
-    regex = re.compile(r'\>[a-zA-Z0-9_ !?.]*\<')
+    regex = re.compile(r'\>[a-zA-Z0-9_ !?.,]*\<')
     localeData = regex.findall(text)
     updatedLocale = text
 
