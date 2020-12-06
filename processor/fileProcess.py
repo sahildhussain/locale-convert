@@ -18,10 +18,13 @@ def GetFileData(filePath):
         localeData[i] = localeData[i].strip('<')
     return localeData
 
-def saveFile(language,changedLocale,filePath):
+def saveFile(language,changedLocale,filePath,directoryPath):
     p = Path(filePath)
     text = p.read_text()
-    fileName = language+'.xml'
+
+    fileName = directoryPath+ '/'+language+'.xml'
+    
+    print(fileName)
     changedFile = open(fileName,'w')
 
     regex = re.compile(r'\>[a-zA-Z0-9_ !?.,]*\<')
