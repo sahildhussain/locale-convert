@@ -2,6 +2,8 @@ import json
 from pathlib import Path
 import re
 
+regex = re.compile(r'\>[a-zA-Z0-9_ !?.,]*\<')
+
 def getKeydata():
     file = open('keyData.json')
     data = json.load(file)
@@ -10,7 +12,6 @@ def getKeydata():
 def GetFileData(filePath):
     p = Path(filePath)
     text = p.read_text()
-    regex = re.compile(r'\>[a-zA-Z0-9_ !?.,]*\<')
     localeData = regex.findall(text)
 
     for i in range(len(localeData)):
@@ -23,11 +24,10 @@ def saveFile(language,changedLocale,filePath,directoryPath):
     text = p.read_text()
 
     fileName = directoryPath+ '/'+language+'.xml'
-    
+
     print(fileName)
     changedFile = open(fileName,'w')
 
-    regex = re.compile(r'\>[a-zA-Z0-9_ !?.,]*\<')
     localeData = regex.findall(text)
     updatedLocale = text
 
