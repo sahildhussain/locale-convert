@@ -5,7 +5,7 @@ from pathlib import Path
 
 def Translate():
     filePath = input('Enter file Path(Enter for default.xml): ')
-    original_language = input('Select the original Language:')
+    original_language = input('Select the original Language(Enter for AutoDetect):')
 
     print('Select the languages you want to convert this document to:')
     convert_to = [x for x in input().split(' ')]

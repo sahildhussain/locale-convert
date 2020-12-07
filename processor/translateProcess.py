@@ -3,12 +3,13 @@ from processor.fileProcess import GetFileData
 
 def detectLanguage(text):
     l_blob = TextBlob(text)
-    return de_blob.detect_language()
+    return l_blob.detect_language()
 
 def translateLanguage(_src,_to,filePath):
     textArray = GetFileData(filePath)
     for index in range(len(textArray)):
         text = textArray[index]
+        
         if(_src == ''):
             _src = detectLanguage(text)
         l_blob = TextBlob(text)
