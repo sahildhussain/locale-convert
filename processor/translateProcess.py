@@ -1,5 +1,6 @@
 from textblob import TextBlob
 from processor.fileProcess import GetFileData
+import time
 
 def detectLanguage(text):
     l_blob = TextBlob(text)
@@ -7,6 +8,7 @@ def detectLanguage(text):
 
 def translateLanguage(_src,_to,filePath):
     textArray = GetFileData(filePath)
+    
     for index in range(len(textArray)):
         text = textArray[index]
         
@@ -15,6 +17,8 @@ def translateLanguage(_src,_to,filePath):
         l_blob = TextBlob(text)
         try:
             textArray[index] = str(l_blob.translate(from_lang=_src,to=_to))
-        except:
-            None
+        except NameError:
+            print(NameError)
+    time.sleep(5)
+            
     return textArray
