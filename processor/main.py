@@ -1,10 +1,14 @@
 from processor.fileProcess import *
-from processor.translateProcess import translateLanguage
+from processor.translateProcess import translateLanguage, translateLanguages
 from pathlib import Path
 import sys
 
 def Translate():
     print(sys.argv)
+    data = GetKeydata()
+    
+    # print(data["translator"])
+    translator=data["translator"]
     if(len(sys.argv)>1):
         filePath = sys.argv[1]
         original_language = sys.argv[2]
@@ -25,7 +29,12 @@ def Translate():
     directoryPath.pop()
     directoryPath = ('/').join(directoryPath)
 
-    for lang in convert_to:
-        response = translateLanguage(original_language,lang,filePath)
-        # print(response)
-        saveFile(lang,response,filePath,directoryPath)
+    if translator=='microsoft':
+        response = translateLanguages(original_language,convert_to,filePath)
+        saveFiles(convert_to, response, filePath,directoryPath)
+    else:
+        for lang in convert_to:
+            response = translateLanguage(original_language,lang,filePath)
+            # print(response)
+            saveFile(lang,response,filePath,directoryPath)
+        

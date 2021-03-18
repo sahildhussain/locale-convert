@@ -2,9 +2,9 @@ import json
 from pathlib import Path
 import re
 
-regex = re.compile(r'\>[a-zA-Z0-9_ !?:.,^\\n\\]*\<')
+regex = re.compile(r'\>[a-zA-Z0-9_ !?:.,^\\n\\]*\</')
 
-def getKeydata():
+def GetKeydata():
     file = open('keyData.json')
     data = json.load(file)
     return data
@@ -28,7 +28,7 @@ def GetFileData(filePath):
 
     for i in range(len(localeData)):
         localeData[i] = localeData[i].strip('>')
-        localeData[i] = localeData[i].strip('<')
+        localeData[i] = localeData[i].strip('</')
     return localeData
 
 def saveFile(language,changedLocale,filePath,directoryPath):
@@ -45,6 +45,28 @@ def saveFile(language,changedLocale,filePath,directoryPath):
 
     for i in range(len(localeData)):
         changedLocale[i] = newLineReader(changedLocale[i])
-        updatedLocale = updatedLocale.replace(localeData[i],'>'+changedLocale[i]+'<')
+        updatedLocale = updatedLocale.replace(localeData[i],'>'+changedLocale[i]+'</')
 
     changedFile.write(updatedLocale)
+
+def saveFiles(languages, changedLocales, filePath, directoryPath):
+    p = Path(filePath)
+    text = p.read_text()
+
+    print(changedLocales)
+
+    for language in languages:
+        fileName = directoryPath+ '/'+language+'.xml'
+
+        changedFile = open(fileName,'w')
+
+        text = newLineWriter(text)
+        localeData = regex.findall(text)
+        updatedLocale = text
+        changedLocale = changedLocales[language]
+        for i in range(len(localeData)):
+            changedLocale[i] = newLineReader(changedLocale[i])
+            updatedLocale = updatedLocale.replace(localeData[i],'>'+changedLocale[i]+'</')
+
+        changedFile.write(updatedLocale)
+
