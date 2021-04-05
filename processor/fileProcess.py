@@ -5,7 +5,8 @@ import re
 regex = re.compile(r'\>[a-zA-Z0-9_ !?:.,^\\n\\]*\</')
 
 def GetKeydata():
-    file = open('keyData.json')
+    keypath=Path(__file__).parent.parent/Path('keyData.json')
+    file = open(keypath)
     data = json.load(file)
     return data
 
