@@ -23,4 +23,4 @@ Inline command:
 
 `python app.py $filepath $originalLanguage $language1,language2`
 
-defualt filePath = default.xml (provide 'na' for default)
+defualt filePath = default.xml which is available along with the library (provide 'na' for default)
