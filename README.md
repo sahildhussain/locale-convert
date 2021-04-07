@@ -15,7 +15,12 @@ location of new files will be similar to path of original file.
 
 NOTE: use python3 and pip3
 
-run command: python app.py
-Inline command: python app.py $filepath $originalLanguage $language1,language2
+run command: 
+
+`python app.py`
+
+Inline command: 
+
+`python app.py $filepath $originalLanguage $language1,language2`
 
 defualt filePath = default.xml (provide 'na' for default)
