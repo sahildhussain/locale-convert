@@ -3,7 +3,8 @@ This locale converter/Translator translates a locale(.xml) file to other languag
 
 Steps to follow:
 
-1. Install textBlob using PIP
+1. Install textBlob and requests using PIP
+```pip3 install requests textblob```
 2. Run the app(python app.py)
 
 you can enter multiple languages at a time to convert(separated by space).
