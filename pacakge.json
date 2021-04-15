@@ -1,0 +1,11 @@
+{
+    "name": "localeConvert",
+    "version": "1.0.0",
+    "description": "Python file: you need to follow Readme to make it work properly",
+    "scripts": {
+      "install": "pip3 install requests textblob"
+    },
+    "author": "Sahil Hussain",
+    "license": "ISC"
+  }
+  
