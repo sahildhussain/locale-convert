@@ -1,11 +1,19 @@
 {
-    "name": "localeConvert",
-    "version": "1.0.0",
+    "name": "locale-convert",
+    "version": "1.0.1",
     "description": "Python file: you need to follow Readme to make it work properly",
     "scripts": {
       "install": "pip3 install requests textblob"
     },
     "author": "Sahil Hussain",
-    "license": "ISC"
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/sahildhussain/locale-convert.git"
+    },
+    "bugs": {
+      "url": "https://github.com/sahildhussain/locale-convert/issues"
+    },
+    "homepage": "https://github.com/sahildhussain/locale-convert#readme"
   }
   
