@@ -14,6 +14,7 @@ you can enter multiple languages at a time to convert(separated by space).
 location of new files will be similar to path of original file.
 
 NOTE: use python3 and pip3
+for using Microsoft translation api. you need azure key of translation project(needs to be replaced in keysData.json)
 
 run command: 
 
